@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jewelwiz/screen/home_screen.dart';
 import 'package:device_preview/device_preview.dart'; // Import HomeScreen
+import 'package:jewelwiz/screen/signup_screen.dart';
+import 'package:jewelwiz/screen/login_screen.dart';
+import 'package:jewelwiz/screen/gemcalculator.dart';
 
 void main() {
   var devicePre = true;
@@ -30,6 +33,5 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(), // Start with the HomeScreen
       debugShowCheckedModeBanner: false,
     );
-    
   }
 }

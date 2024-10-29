@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jewelwiz/screen/signup_screen.dart';
-import 'package:jewelwiz/screen/accountcreated_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +11,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Welcome, \nlogin to start with us',
-              textAlign: TextAlign.center,
+              'Hello!',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -24,8 +21,16 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 30),
             TextField(
               decoration: InputDecoration(
+                labelText: 'Full name',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              decoration: InputDecoration(
                 labelText: 'Email',
-                prefixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -36,30 +41,26 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
-                prefixIcon: Icon(Icons.lock),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                suffixIcon: Icon(Icons.visibility_off),
               ),
             ),
-            const SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                child: const Text('Forgot Password?'),
+            const SizedBox(height: 16),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AccountCreatedScreen(),
-                  ),
-                );
+                // Navigate to the login screen after successful sign-up
+                Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.tealAccent,
@@ -69,32 +70,18 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               child:
-                  const Text('LOG IN', style: TextStyle(color: Colors.black)),
+                  const Text('Sign up', style: TextStyle(color: Colors.black)),
             ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.g_mobiledata)),
-                IconButton(onPressed: () {}, icon: Icon(Icons.facebook)),
-                IconButton(onPressed: () {}, icon: Icon(Icons.apple)),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text("Don’t have an account? "),
+                const Text("Already have an account? "),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
-                      ),
-                    ); // Navigate to SignUpScreen
+                    Navigator.pop(context); // Navigate back to login screen
                   },
-                  child: const Text("SIGN UP"),
+                  child: const Text("Sign in"),
                 ),
               ],
             ),
