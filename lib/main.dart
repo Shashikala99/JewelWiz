@@ -5,6 +5,7 @@ import 'package:jewelwiz/screen/signup_screen.dart';
 import 'package:jewelwiz/screen/login_screen.dart';
 import 'package:jewelwiz/screen/gemcalculator.dart';
 
+
 void main() {
   var devicePre = true;
 
