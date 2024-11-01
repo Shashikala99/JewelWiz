@@ -4,7 +4,7 @@ import 'package:device_preview/device_preview.dart'; // Import HomeScreen
 import 'package:jewelwiz/screen/signup_screen.dart';
 import 'package:jewelwiz/screen/login_screen.dart';
 import 'package:jewelwiz/screen/gemcalculator.dart';
-
+import 'package:jewelwiz/screen/GemstoneCameraScreen.dart';
 
 void main() {
   var devicePre = true;

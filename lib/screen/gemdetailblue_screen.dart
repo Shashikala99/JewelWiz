@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+import 'package:jewelwiz/screen/GemstoneCameraScreen.dart';
 
-class GemDetailsPage extends StatelessWidget {
+class GemDetailsPage extends StatefulWidget {
   final String gemName;
   final String gemImage;
   final String mineralGroup;
@@ -31,83 +33,51 @@ class GemDetailsPage extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(gemName),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Image.asset(
-                  gemImage,
-                  width: 200,
-                  height: 200,
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              const Text(
-                'Description',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8.0),
-              _buildDescriptionTile('Mineral Group', mineralGroup),
-              _buildDescriptionTile(
-                  'Chemical Composition', chemicalComposition),
-              _buildDescriptionTile('Crystal System', crystalSystem),
-              _buildDescriptionTile('Refractive Index', refractiveIndex),
-              _buildDescriptionTile('Specific Gravity', specificGravity),
-              _buildDescriptionTile('Hardness', hardness),
-              _buildDescriptionTile('Luster', luster),
-              _buildDescriptionTile('Fracture', fracture),
-              _buildDescriptionTile('Cleavage', cleavage),
-              _buildDescriptionTile('Pleochroism', pleochroism),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
+  _GemDetailsPageState createState() => _GemDetailsPageState();
+}
+
+class _GemDetailsPageState extends State<GemDetailsPage> {
+  Future<void> openCamera() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CameraScreen(camera: firstCamera),
       ),
     );
   }
 
-  Widget _buildDescriptionTile(String title, String description) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        children: [
-          Text(
-            '$title:',
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(width: 8.0),
-          Expanded(
-            child: Text(description),
-          ),
-        ],
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.gemName),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Image.asset(widget.gemImage),
+            Text('Mineral Group: ${widget.mineralGroup}'),
+            Text('Chemical Composition: ${widget.chemicalComposition}'),
+            Text('Crystal System: ${widget.crystalSystem}'),
+            Text('Refractive Index: ${widget.refractiveIndex}'),
+            Text('Specific Gravity: ${widget.specificGravity}'),
+            Text('Hardness: ${widget.hardness}'),
+            Text('Luster: ${widget.luster}'),
+            Text('Fracture: ${widget.fracture}'),
+            Text('Cleavage: ${widget.cleavage}'),
+            Text('Pleochroism: ${widget.pleochroism}'),
+            const SizedBox(height: 20),
+            IconButton(
+              icon: const Icon(Icons.camera_alt),
+              iconSize: 50,
+              onPressed: openCamera,
+              tooltip: 'Open Camera',
+            ),
+          ],
+        ),
       ),
     );
   }
