@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:jewelwiz/screen/CapturedGemScree.dart';
+import 'package:jewelwiz/screen/CapturedGemScreen.dart';
 import 'dart:io'; // Import for working with File
-import 'package:jewelwiz/screen/captured_gem_screen.dart';
 
 class CameraScreen extends StatefulWidget {
   final CameraDescription camera;
@@ -45,6 +44,7 @@ class _CameraScreenState extends State<CameraScreen> {
         MaterialPageRoute(
           builder: (context) => CapturedGemScreen(
             imageBytes: imageBytes,
+            specificGravity: 3.99,
           ),
         ),
       );
