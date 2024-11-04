@@ -1,3 +1,16 @@
+buildscript {
+    ext.kotlin_version = '1.7.10' // Update this to 1.7.0 or higher
+    repositories {
+        google()
+        mavenCentral()
+    }
+   
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.2' // Use the latest stable version of Gradle plugin if needed
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 allprojects {
     repositories {
         google()
@@ -16,3 +29,9 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+
+
+
+
+
