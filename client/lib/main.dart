@@ -1,10 +1,12 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:jewelwiz/screen/home_screen.dart';
-import 'package:device_preview/device_preview.dart'; // Import HomeScreen
+import 'package:device_preview/device_preview.dart';
 import 'package:jewelwiz/screen/signup_screen.dart';
 import 'package:jewelwiz/screen/login_screen.dart';
 import 'package:jewelwiz/screen/gemcalculator.dart';
 import 'package:jewelwiz/screen/GemstoneCameraScreen.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   var devicePre = true;

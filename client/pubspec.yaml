@@ -40,6 +40,7 @@ dependencies:
   cached_network_image: ^3.4.1
   http: ^1.2.2
   permission_handler: ^10.2.0
+  http_parser: ^4.0.2
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,22 @@ flutter:
     - assets/topaz.PNG
     - assets/Tourmalin.PNG
     - assets/Zircon.PNG
+    - assets/cushion_cut.PNG
+    - assets/cushion_cut1.PNG
+    - assets/heart_cut.PNG
+    - assets/heart_cut1.PNG
+    - assets/marquise_cut.PNG
+    - assets/marquise_cut1.PNG
+    - assets/oval_cut.PNG
+    - assets/oval_cut1.PNG
+    - assets/pear_cut.PNG
+    - assets/pear_cut1.PNG
+    - assets/princess_cut.PNG
+    - assets/princess_cut1.PNG
+    - assets/trillion_cut.PNG
+    - assets/trillion_cut1.PNG
+    - assets/standard_brilliant_cut1.PNG
+    - assets/standard_brilliant.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
