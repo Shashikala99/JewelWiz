@@ -71,7 +71,7 @@ class _CapturedGemScreenState extends State<CapturedGemScreen> {
       }
     } catch (e) {
       print('Error fetching measurements: $e');
-      return {'width': 2.5, 'height': 1.8}; // Fallback values
+      return {'width': 3.2, 'height': 4.3}; // Fallback values
     }
   }
 
